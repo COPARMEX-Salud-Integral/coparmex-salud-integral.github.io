@@ -539,7 +539,8 @@ footer b{color:var(--onnavy);font-family:var(--f-display);font-size:16px}
   });
 
   /* ===== Registro de iniciativas ===== */
-  var ENDPOINT=''; /* URL del flujo (Power Automate o Make) que agrega la fila al Excel. Vacío = modo copiar y pegar */
+  var ENDPOINT='https://script.google.com/macros/s/AKfycbxV8L24EM7jfKGpHPI4Fn2LFjiXJlEd0fovVfNi0tJmPKQIeqYd99oNHqOURxMDKEfEPQ/exec'; /* URL de la aplicación web (Google Apps Script) que agrega la fila al Registro. Vacío = modo copiar y pegar */
+  var KEY='1d1810a2bbefc117a89307d7';
   function yn(v){return v?'Sí':'No';}
   function ynRaw(v){return v==='si'?'Sí':v==='no'?'No':'';}
   function today(){var d=new Date();return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2);}
@@ -566,9 +567,10 @@ footer b{color:var(--onnavy);font-family:var(--f-display);font-size:16px}
     if(S.example){st.textContent='Esta es la ficha de ejemplo. Captura una iniciativa real o usa "Nueva ficha en blanco".';return;}
     if(!ENDPOINT){$('fallback').style.display='grid';st.textContent='';return;}
     var btn=this;btn.disabled=true;$('submitLbl').textContent='Subiendo…';st.textContent='';
-    fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload())})
-      .then(function(r){if(!r.ok)throw new Error(r.status);$('submitLbl').textContent='Iniciativa registrada ✓';st.textContent='Quedó como un renglón nuevo en el Registro de Iniciativas.';})
-      .catch(function(){btn.disabled=false;$('submitLbl').textContent='Subir iniciativa al Registro';st.textContent='No se pudo subir. Usa copiar y pegar mientras se revisa la conexión.';$('fallback').style.display='grid';});
+    var body=payload();body.k=KEY;body.web='';
+    fetch(ENDPOINT,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(body)})
+      .then(function(){$('submitLbl').textContent='Iniciativa enviada ✓';st.textContent='Enviada al Registro de Iniciativas. La Comisión recibirá un aviso por correo.';})
+      .catch(function(){btn.disabled=false;$('submitLbl').textContent='Subir iniciativa al Registro';st.textContent='No se pudo enviar. Usa copiar y pegar mientras se revisa la conexión.';$('fallback').style.display='grid';});
   });
   fill(); render();
 })();
