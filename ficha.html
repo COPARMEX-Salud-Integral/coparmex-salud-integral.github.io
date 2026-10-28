@@ -1,3 +1,5 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#1B3466"><meta name="apple-mobile-web-app-capable" content="yes">
 <title>COPARMEX - Salud Integral - Ficha Iniciativa</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -224,6 +226,96 @@ footer b{color:var(--onnavy);font-family:var(--f-display);font-size:16px}
 @media (max-width:420px){.scale span{width:40px;height:44px}.barrow{grid-template-columns:96px minmax(0,1fr) 40px}.logo-slot img{height:52px}}
 @media (prefers-reduced-motion:reduce){#needle,.barrow .f{transition:none}}
 @media print{nav.bar,.btn,.live{display:none!important}.hero,footer{-webkit-print-color-adjust:exact;print-color-adjust:exact}textarea::placeholder,input::placeholder{color:transparent}}
+
+/* ===== Teléfono: captura cómoda y vistosa ===== */
+body{margin:0;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
+.navprog{position:absolute;left:0;bottom:-1px;height:3px;width:0;background:linear-gradient(90deg,var(--teal),var(--blue),var(--orange));border-radius:0 3px 3px 0;transition:width .35s ease}
+nav.bar a.act{background:var(--navy);color:var(--onnavy)}
+:root[data-theme="dark"] nav.bar a.act{background:var(--blue)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) nav.bar a.act{background:var(--blue)}}
+.dock{display:none}
+@media (max-width:640px){
+  body{font-size:15.5px}
+  input[type=text],textarea{font-size:16px;border-radius:14px;padding:13px 14px}
+  textarea{min-height:96px}
+  input[type=text]:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 4px color-mix(in srgb,var(--blue) 18%,transparent)}
+  .hero .wrap{padding-block:max(18px,env(safe-area-inset-top,0px)) 26px;gap:18px}
+  .brand{margin-bottom:16px;gap:12px}
+  .logo-slot{padding:6px 10px;border-radius:12px}
+  .logo-slot img{height:44px}
+  .brand-txt{font-size:12.5px;max-width:none;flex:1 1 160px}
+  .hero h1{font-size:34px}
+  .hero .lead{font-size:15.5px;margin-top:12px}
+  .hero .chips{margin-top:16px}
+  .gauge-card{padding:14px 14px 12px;border-radius:20px;backdrop-filter:blur(6px)}
+  .gauge-card svg{max-width:220px}
+  nav.bar .wrap{gap:4px;padding-block:6px;scroll-snap-type:x proximity;scrollbar-width:none;-webkit-overflow-scrolling:touch;mask-image:linear-gradient(90deg,#000 88%,transparent)}
+  nav.bar .wrap::-webkit-scrollbar{display:none}
+  nav.bar a{scroll-snap-align:start;padding:9px 12px;font-size:13.5px;border-radius:999px}
+  #dlBtn,.navsp,#dlLive{display:none}
+  main .wrap{padding-block:22px calc(112px + env(safe-area-inset-bottom,0px));gap:30px}
+  section{scroll-margin-top:64px}
+  .sec-head{gap:8px 10px;margin-bottom:12px}
+  .sec-head h2{font-size:25px}
+  .sec-head p{font-size:14.5px}
+  .card{padding:16px;border-radius:18px}
+  .funnel{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:80%;overflow-x:auto;scroll-snap-type:x mandatory;margin-inline:-16px;padding:2px 16px 8px;scrollbar-width:none}
+  .funnel::-webkit-scrollbar{display:none}
+  .stage{scroll-snap-align:center}
+  .lines,.objs{gap:10px}
+  .lchip span{padding:12px 14px}
+  .lchip input:active+span,.ochip input:active+span{transform:scale(.98)}
+  .lchip span,.ochip span{transition:border-color .15s,background .15s,transform .12s}
+  .ynrow{padding:14px;gap:12px}
+  .ynrow .q{flex-basis:100%}
+  .seg{display:flex;width:100%;border-radius:14px}
+  .seg label{flex:1}
+  .seg span{text-align:center;padding:13px 10px;min-height:48px;font-size:15px}
+  .crit{padding:14px;gap:12px}
+  .crit h3{font-size:17px}
+  .scale{width:100%;gap:8px}
+  .scale label{flex:1}
+  .scale span{width:100%;height:52px;font-size:19px;border-radius:14px;transition:transform .12s,background .15s}
+  .scale input:checked+span{transform:translateY(-2px);box-shadow:0 6px 16px rgba(27,52,102,.28)}
+  .rubric{gap:6px;font-size:12.5px}
+  .rubric div{padding:7px 10px}
+  .barrow{grid-template-columns:96px minmax(0,1fr) 34px}
+  .design-grid{gap:10px}
+  .dict{padding:20px;gap:10px}
+  .dict .big{font-size:56px}
+  .dict h3{font-size:21px}
+  .actions .btn{flex:1 1 140px}
+  .submit{padding:22px 18px;border-radius:22px;margin-top:20px}
+  .bigbtn{min-height:62px;border-radius:16px}
+  .fallback .row .btn{flex:1 1 100%;white-space:normal;text-align:center}
+  .qs li{padding:12px 14px;font-size:14.5px}
+  footer .wrap{padding-bottom:calc(26px + 92px + env(safe-area-inset-bottom,0px))}
+
+  /* Dock inferior con puntaje y avance */
+  .dock{display:flex;position:fixed;z-index:20;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));align-items:center;gap:12px;padding:10px 10px 10px 12px;border-radius:22px;
+    background:linear-gradient(135deg,color-mix(in srgb,var(--navy) 94%,transparent),color-mix(in srgb,var(--navy2) 94%,transparent));color:var(--onnavy);
+    border:1px solid rgba(255,255,255,.14);box-shadow:0 14px 40px rgba(10,20,50,.38);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    transform:translateY(140%);opacity:0;transition:transform .4s cubic-bezier(.2,.9,.3,1.2),opacity .3s}
+  .dock.show{transform:none;opacity:1}
+  .dock .ring{--p:0;--c:var(--onnavy2);flex:none;width:50px;height:50px;border-radius:50%;display:grid;place-items:center;
+    background:conic-gradient(var(--c) calc(var(--p)*1%),rgba(255,255,255,.14) 0);transition:--p .5s}
+  .dock .ring b{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--navy);font-family:var(--f-display);font-weight:800;font-size:16px;font-variant-numeric:tabular-nums}
+  .dock .meta{flex:1;min-width:0;display:grid;gap:5px}
+  .dock .vd{font-weight:700;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .dock .pg{display:flex;align-items:center;gap:8px;font-size:11.5px;color:var(--onnavy2);font-family:var(--f-mono)}
+  .dock .pg i{flex:1;height:6px;border-radius:9px;background:rgba(255,255,255,.14);overflow:hidden;display:block}
+  .dock .pg i s{display:block;height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,var(--teal),#5FD3C0);transition:width .4s ease}
+  .dock .go{flex:none;border:0;border-radius:16px;min-height:48px;padding:0 16px;background:#fff;color:#0b2447;font-weight:800;font-size:14px;display:flex;align-items:center;gap:6px;box-shadow:0 6px 16px rgba(0,0,0,.25)}
+  .dock .go svg{width:18px;height:18px}
+  .dock.pulse .ring{animation:pop .5s ease}
+  @keyframes pop{40%{transform:scale(1.14)}}
+
+  /* Entrada suave de secciones */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
+  .reveal.in{opacity:1;transform:none}
+}
+@media (max-width:640px) and (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.dock{transition:none}.dock.pulse .ring{animation:none}}
+@property --p{syntax:"<number>";inherits:false;initial-value:0}
 </style>
 
 <header class="hero" id="inicio">
@@ -261,7 +353,7 @@ footer b{color:var(--onnavy);font-family:var(--f-display);font-size:16px}
   </div>
 </header>
 
-<nav class="bar" aria-label="Secciones">
+<nav class="bar" aria-label="Secciones"><span class="navprog" id="navProg" aria-hidden="true"></span>
   <div class="wrap">
     <a href="#resumen">Resumen</a><a href="#f1">1 · Alineación</a><a href="#f2">2 · Valoración</a><a href="#f3">3 · Diseño</a><a href="#dictamen">Dictamen</a><a href="#preguntas">Preguntas</a>
     <span class="navsp"></span>
@@ -575,3 +667,72 @@ footer b{color:var(--onnavy);font-family:var(--f-display);font-size:16px}
   fill(); render();
 })();
 </script>
+<div class="dock" id="dock" role="status" aria-live="polite">
+  <div class="ring" id="dRing"><b id="dScore">–</b></div>
+  <div class="meta"><div class="vd" id="dVerd">Sin evaluar</div><div class="pg"><i><s id="dBar"></s></i><span id="dPct">0%</span></div></div>
+  <button class="go" id="dGo" type="button"><span id="dGoLbl">Subir</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M5 20h14"/></svg></button>
+</div>
+
+<script>
+/* Capa móvil: dock de puntaje, avance de captura, resaltado de sección y entrada suave. No altera la lógica de la ficha. */
+(function(){
+  function $(id){return document.getElementById(id);}
+  var dock=$('dock'); if(!dock) return;
+  var mq=window.matchMedia('(max-width:640px)');
+  var COLORS={'Pasa a diseño de piloto':'#17B26A','Rediseñar y volver a presentar':'#E9B100','Banco de ideas':'#E5484D','No alineada':'#E5484D'};
+  var IDS=['nombre','propone','empresa','poblacion','problema','descripcion'];
+  function pct(){
+    var n=0,t=0;
+    IDS.forEach(function(k){t++; if(($(k).value||'').trim()) n++;});
+    t++; if(document.querySelector('[data-line]:checked')) n++;
+    t++; if(document.querySelector('[data-obj]:checked')) n++;
+    ['mipyme','prev','medible'].forEach(function(k){t++; if(document.querySelector('input[name="'+k+'"]:checked')) n++;});
+    document.querySelectorAll('.scale').forEach(function(sc){t++; if(sc.querySelector('input:checked')) n++;});
+    return Math.round(n/t*100);
+  }
+  var last='';
+  function sync(){
+    var sc=$('gScore').textContent.trim(), vd=$('gVerdict').textContent.trim(), p=pct();
+    var num=parseInt(sc,10), ring=$('dRing');
+    $('dScore').textContent=sc||'–';
+    $('dVerd').textContent=vd==='Sin evaluar'?(($('nombre').value||'').trim()||'Nueva iniciativa'):vd;
+    ring.style.setProperty('--p',isNaN(num)?p:num);
+    ring.style.setProperty('--c',COLORS[vd]||'#5FD3C0');
+    $('dBar').style.width=p+'%'; $('dPct').textContent=p+'%';
+    $('navProg').style.width=p+'%';
+    var key=sc+'|'+vd; if(key!==last){ if(last){dock.classList.remove('pulse');void dock.offsetWidth;dock.classList.add('pulse');} last=key; }
+  }
+  new MutationObserver(sync).observe($('gScore'),{childList:true,characterData:true,subtree:true});
+  new MutationObserver(sync).observe($('gVerdict'),{childList:true,characterData:true,subtree:true});
+  document.addEventListener('input',function(){setTimeout(sync,0);});
+  document.addEventListener('change',function(e){
+    setTimeout(sync,0);
+    if(mq.matches&&e.target&&e.target.type!=='text'&&navigator.vibrate){try{navigator.vibrate(8);}catch(_){}}
+  });
+  $('dGo').addEventListener('click',function(){ $('registro').scrollIntoView({behavior:'smooth',block:'start'}); });
+
+  var heroOut=false, regIn=false;
+  function vis(){dock.classList.toggle('show',mq.matches&&heroOut&&!regIn);}
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(en){heroOut=!en[0].isIntersecting;vis();},{threshold:0}).observe($('inicio'));
+    new IntersectionObserver(function(en){regIn=en[0].isIntersecting;vis();},{threshold:.15}).observe($('registro'));
+    /* sección activa en la barra */
+    var links={}; document.querySelectorAll('nav.bar a[href^="#"]').forEach(function(a){links[a.getAttribute('href').slice(1)]=a;});
+    var spy=new IntersectionObserver(function(en){en.forEach(function(x){
+      if(x.isIntersecting&&links[x.target.id]){
+        Object.keys(links).forEach(function(k){links[k].classList.remove('act');});
+        var a=links[x.target.id]; a.classList.add('act');
+        if(mq.matches){var w=a.parentNode; w.scrollTo({left:a.offsetLeft-16,behavior:'smooth'});}
+      }});},{rootMargin:'-45% 0px -50% 0px'});
+    Object.keys(links).forEach(function(k){var el=$(k); if(el) spy.observe(el);});
+    /* entrada suave */
+    if(mq.matches){
+      var rv=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){var t=x.target;t.classList.add('in');rv.unobserve(t);setTimeout(function(){t.classList.remove('reveal','in');},700);}});},{rootMargin:'0px 0px -8% 0px'});
+      document.querySelectorAll('main .card,.stage,.crit,.dict,.submit,.qs li').forEach(function(el){el.classList.add('reveal');rv.observe(el);});
+    }
+  } else { heroOut=true; vis(); }
+  (mq.addEventListener?mq.addEventListener('change',vis):mq.addListener(vis));
+  sync();
+})();
+</script>
+
